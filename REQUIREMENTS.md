@@ -405,3 +405,17 @@ tools are not added to any auto-approval allowlist in
 `.claude/settings.json`, so the first use of the server in a session
 requires the normal Claude Code permission prompt rather than running
 unattended.
+
+### REQ-049 — Article detail view offers a Markdown download of the article
+On the article detail page, a control lets the current viewer download the
+displayed article as a standalone `.md` file, for any article the viewer
+can already view — no additional authentication or authorization is
+required beyond what already applies to viewing the article itself. The
+downloaded file's content is the article's title rendered as a level-1
+Markdown heading, followed by the article's body verbatim: the body is
+already stored and rendered elsewhere as Markdown, so it is not
+reformatted, escaped, or otherwise altered for the download — headings,
+lists, and any other Markdown syntax already present in the body appear
+unchanged in the downloaded file. The downloaded filename is derived from
+the article's slug (`<slug>.md`). This is a client-side-only feature; no
+server request beyond the article's own retrieval (REQ-019) is involved.

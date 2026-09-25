@@ -404,6 +404,23 @@ changed.
   use of the server in a session requires an interactive permission
   prompt.
 
+### US-029 — Download an article as Markdown
+*(REQ-049)*
+
+- **AC-080** — Given an article with a known title, body, and slug, when
+  the viewer uses the article detail page's download control, then a `.md`
+  file named `<slug>.md` is downloaded, containing the title as a
+  level-1 Markdown heading followed by the body.
+- **AC-081** — Given an article body containing Markdown syntax such as
+  level-2/level-3 headings (`##`/`###`) or an unordered list (`-` items),
+  when the article is downloaded, then that syntax appears unchanged in
+  the downloaded file rather than being re-rendered, stripped, or escaped.
+- **AC-082** — Given any viewer who can already view the article —
+  including an anonymous visitor or an authenticated user who is not the
+  article's author — when they use the download control, then the
+  download succeeds without any additional authentication or authorization
+  check beyond what already gates viewing the article.
+
 ---
 
 ## Traceability Matrix
@@ -458,3 +475,4 @@ changed.
 | REQ-046 | US-027 | AC-074, AC-075 |
 | REQ-047 | US-028 | AC-076, AC-077 |
 | REQ-048 | US-028 | AC-078, AC-079 |
+| REQ-049 | US-029 | AC-080–AC-082 |
