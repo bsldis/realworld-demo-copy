@@ -421,6 +421,22 @@ changed.
   download succeeds without any additional authentication or authorization
   check beyond what already gates viewing the article.
 
+### US-030 — Estimated reading time badge
+*(REQ-050)*
+
+- **AC-083** — Given an article with a known body, when it is displayed on
+  a preview card or the article detail page, then an estimated reading
+  time (e.g., "4 min read") is rendered alongside the existing creation
+  date, and the date element's own text/format is unchanged from before
+  (REQ-040, `AC-060`).
+- **AC-084** — Given an article whose body is empty, whitespace-only, or a
+  single word, when reading time is computed, then it displays "1 min
+  read" rather than "0 min read", a blank value, or `NaN`.
+- **AC-085** — Given an article's body has changed (e.g., after editing
+  and re-fetching the article), when the article is re-rendered, then the
+  displayed reading time reflects the updated body's word count rather
+  than a stale estimate.
+
 ---
 
 ## Traceability Matrix
@@ -476,3 +492,4 @@ changed.
 | REQ-047 | US-028 | AC-076, AC-077 |
 | REQ-048 | US-028 | AC-078, AC-079 |
 | REQ-049 | US-029 | AC-080–AC-082 |
+| REQ-050 | US-030 | AC-083–AC-085 |
