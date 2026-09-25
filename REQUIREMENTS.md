@@ -419,3 +419,21 @@ lists, and any other Markdown syntax already present in the body appear
 unchanged in the downloaded file. The downloaded filename is derived from
 the article's slug (`<slug>.md`). This is a client-side-only feature; no
 server request beyond the article's own retrieval (REQ-019) is involved.
+
+### REQ-050 — Estimated reading time badge on article previews and detail view
+Article preview cards and the article detail page each display an estimated
+reading time (e.g., "4 min read"), rendered as a new element directly
+alongside the existing creation-date display (REQ-040) within the same
+`article-meta` block, without changing that date element's own markup,
+content, or formatting. The estimate is computed client-side from the
+article's `body` text: the body is split on whitespace into words, and the
+word count is divided by a fixed rate of 200 words per minute, rounded up
+to the next whole minute, with a floor of one minute — so an empty,
+whitespace-only, or single-word body always displays "1 min read" rather
+than "0 min read" or a `NaN`/blank value, and the word count is taken
+as-is from the raw Markdown body without stripping Markdown syntax
+(headings, list markers, link syntax, etc. count as words). Because the
+estimate is derived directly from the `body` already present in every
+article response (list and single), no backend or API change is involved;
+re-rendering with an updated `body` (e.g., after editing and re-fetching an
+article) recomputes the estimate accordingly.

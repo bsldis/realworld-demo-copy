@@ -5164,7 +5164,7 @@ footer {
     .article-meta .info .author {
       display: block;
       font-weight: 500 !important; }
-    .article-meta .info .date {
+    .article-meta .info .date, .article-meta .info .reading-time {
       color: #bbb;
       font-size: 0.8rem;
       display: block; }
