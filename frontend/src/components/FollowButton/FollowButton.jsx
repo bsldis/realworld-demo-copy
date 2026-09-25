@@ -24,10 +24,9 @@ function FollowButton({ followersCount, following, handler, username }) {
   return (
     <>
       <button
-        className={`btn btn-sm action-btn ${buttonStyle}`}
+        className={`btn btn-sm action-btn btn-muted ${buttonStyle}`}
         disabled={loading}
         onClick={handleClick}
-        style={{ color: "#777" }}
       >
         {isAuth && <i className={iconStyle}></i>} {text} {isAuth && username}
         <span className="counter"> ( {followersCount} )</span>
