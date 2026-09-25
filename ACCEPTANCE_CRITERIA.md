@@ -437,6 +437,30 @@ changed.
   displayed reading time reflects the updated body's word count rather
   than a stale estimate.
 
+### US-031 — Light/dark theme toggle
+*(REQ-051)*
+
+- **AC-086** — Given no stored theme preference, when the OS/browser
+  reports no preference for a dark color scheme (or none is available),
+  then the site renders in the light theme by default.
+- **AC-087** — Given no stored theme preference, when the OS/browser
+  reports a preference for a dark color scheme, then the site renders in
+  the dark theme by default.
+- **AC-088** — Given a visitor clicks the navbar's theme toggle control,
+  when the theme switches, then the change is applied immediately without
+  a page reload, and the new choice is persisted to `localStorage`.
+- **AC-089** — Given a previously stored theme preference, when the page
+  is reloaded or the visitor returns in a new session, then the site
+  renders in that stored theme rather than re-deriving it from the current
+  OS/browser preference.
+- **AC-090** — Given the dark theme is applied, when each existing
+  page/component (home feed, article detail, article editor, account
+  settings, profile, login/register) is inspected, then all text and
+  interactive controls remain legible — no unreadable text, no invisible
+  borders/icons. This is verified by manual browser inspection rather than
+  an automated test, since visual legibility is not meaningfully
+  assertable in a unit test.
+
 ---
 
 ## Traceability Matrix
@@ -493,3 +517,4 @@ changed.
 | REQ-048 | US-028 | AC-078, AC-079 |
 | REQ-049 | US-029 | AC-080–AC-082 |
 | REQ-050 | US-030 | AC-083–AC-085 |
+| REQ-051 | US-031 | AC-086–AC-090 |

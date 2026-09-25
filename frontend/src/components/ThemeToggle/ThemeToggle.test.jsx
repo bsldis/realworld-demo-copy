@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import ThemeProvider from "../../context/ThemeContext";
 import ThemeToggle from "./ThemeToggle";
 
@@ -43,7 +43,7 @@ it("switches the applied theme when clicked, without a page reload", () => {
 
   expect(document.documentElement.getAttribute("data-theme")).toBe("light");
 
-  screen.getByRole("button", { name: /theme/i }).click();
+  fireEvent.click(screen.getByRole("button", { name: /theme/i }));
 
   expect(document.documentElement.getAttribute("data-theme")).toBe("dark");
 });

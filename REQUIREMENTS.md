@@ -437,3 +437,20 @@ estimate is derived directly from the `body` already present in every
 article response (list and single), no backend or API change is involved;
 re-rendering with an updated `body` (e.g., after editing and re-fetching an
 article) recomputes the estimate accordingly.
+
+### REQ-051 — Light/dark theme toggle persisted across sessions
+A control in the navbar lets a visitor switch the client between a light and
+a dark color theme at any time, on any page, without a page reload. If the
+visitor has no previously stored theme choice on that browser, the site
+defaults to the OS/browser's `prefers-color-scheme` setting where available,
+falling back to the light theme when no such preference is reported. Once a
+visitor makes an explicit choice via the toggle, that choice is persisted
+client-side (`localStorage`) and takes precedence over the OS/browser
+preference on every subsequent page load or new visit, even if the
+OS/browser preference later changes.
+
+**Boundary:** This is a client-side-only feature; no backend request or API
+change is involved, and no REQ-001–REQ-046 behavior changes. Every dark-theme
+CSS rule is additive — none modifies, removes, or overrides a pre-existing
+light-theme rule — so the light theme's rendered appearance is unchanged
+from before this feature existed.
